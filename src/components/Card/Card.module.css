@@ -1,0 +1,22 @@
+.card {
+  border: black 2px solid;
+  width: 280px;
+  height: 300px;
+  margin: 0 10px 10px 10px;
+  background-color: #758694;
+  border-radius: 5%;
+}
+
+.card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card img {
+  margin: 10px 0 0 0;
+  border: 3px black solid;
+  border-radius: 20%;
+  min-width: 200px;
+  min-height: 200px;
+  background-color: maroon;
+}
