@@ -1,0 +1,13 @@
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 1rem;
+  padding: 0.3rem;
+  align-items: stretch;
+  justify-content: center;
+}
