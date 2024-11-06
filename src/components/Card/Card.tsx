@@ -9,7 +9,7 @@ interface CardProps {
 const Card = ({ character, onClick }: CardProps) => {
   return (
     <>
-      <div className={styles.card} onClick={onClick}>
+      <div className={`card ${styles.card}`} onClick={onClick}>
         <img src={character.imageURL} alt="" />
         <div className={styles.nameContainer}>
           <p>{character.name}</p>

@@ -2,7 +2,7 @@ import { Character } from '../types';
 
 export const fetchCharacters = async (
   showId: number,
-  numCharacters: number
+  numOfCards: number
 ): Promise<Character[]> => {
   try {
     const response = await fetch(`https://api.tvmaze.com/shows/${showId}/cast`);
@@ -12,14 +12,14 @@ export const fetchCharacters = async (
     }
 
     const data = await response.json();
-    console.log(data);
+
     const charInfo = data.map((item) => ({
       id: item.character.id,
       name: item.character.name,
       imageURL: item.character.image.original,
     }));
-    console.log(data);
-    const shortenedInfo = charInfo.slice(0, 20);
+
+    const shortenedInfo = charInfo.slice(0, numOfCards);
 
     return shortenedInfo;
   } catch (error) {

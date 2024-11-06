@@ -1,81 +1,87 @@
 import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { shows, Show } from './showData.ts';
+import ShowImage from '../../components/ShowImage/ShowImage';
+import SkillButton from '../../components/SkillButton/SkillButton';
+import { GameParams } from '../../types.ts';
+import setTheme from '../../utils/setTheme.ts';
 
 const Home = () => {
-  const [gameInfo, setGameInfo] = useState({
+  const [gameParams, setGameParams] = useState<GameParams>({
     showId: null,
     numOfCards: null,
   });
 
-  const handleShowClick = (showId) => {
-    setGameInfo((prevInfo) => ({
-      ...prevInfo,
-      showId: showId,
-    }));
+  const skillLevels = {
+    easy: 3,
+    medium: 25,
+    hard: 35,
   };
 
-  const handleSkillClick = (numOfCards) => {
-    setGameInfo((prevInfo) => ({
-      ...prevInfo,
+  const handleShowClick = (show: Show) => {
+    setGameParams((prevParams) => ({
+      ...prevParams,
+      showId: show.id,
+    }));
+
+    setTheme(show.theme);
+  };
+
+  const handleSkillClick = (numOfCards: number) => {
+    setGameParams((prevParams) => ({
+      ...prevParams,
       numOfCards: numOfCards,
     }));
   };
 
-  const isPlayEnabled = gameInfo.showId && gameInfo.numOfCards;
+  const isPlayEnabled = Boolean(gameParams.showId && gameParams.numOfCards);
 
   return (
     <div className={styles.home}>
       <div className={styles.showContainer}>
         <h1>Choose a Series</h1>
         <div className={styles.linkContainer}>
-          <img
-            src="https://static1.colliderimages.com/wordpress/wp-content/uploads/the-wire-title-logo-slice.jpg"
-            alt="The Wire"
-            onClick={() => handleShowClick(shows[0].showId)}
-          />
-
-          {/* <Link to="/play" state={{ showId: shows[1].showId }}>
-            <img
-              src="https://www.artofthetitle.com/assets/sm/upload/3c/yw/kr/gx/sopranos_logo-updated.jpg?k=88c55f4205"
-              alt=""
-            />
-          </Link> */}
-
-          <img
-            src="https://assets.fontsinuse.com/use-media/52603/upto-700xauto/5927e8cf/1/png/vlcsnap-2017-05-26-10h31m11s324.png"
-            alt="Twin Peaks"
-            onClick={() => handleShowClick(shows[2].showId)}
-          />
+          {shows.map((show) => (
+            <ShowImage
+              key={show.id}
+              src={show.imageURL}
+              alt={show.name}
+              isSelected={gameParams.showId === show.id}
+              onClick={() => handleShowClick(show)}
+            ></ShowImage>
+          ))}
         </div>
       </div>
       <div className={styles.skillContainer}>
         <h1>Choose a Skill Level</h1>
         <div className={styles.buttonContainer}>
-          <button onClick={() => handleSkillClick(10)}>Easy</button>
-          <button onClick={() => handleSkillClick(18)}>Medium</button>
-          <button onClick={() => handleSkillClick(26)}>Hard</button>
+          <SkillButton
+            label="Easy"
+            isSelected={gameParams.numOfCards === skillLevels.easy}
+            onClick={() => handleSkillClick(skillLevels.easy)}
+          />
+          <SkillButton
+            label="Medium"
+            isSelected={gameParams.numOfCards === skillLevels.medium}
+            onClick={() => handleSkillClick(skillLevels.medium)}
+          />
+          <SkillButton
+            label="Hard"
+            isSelected={gameParams.numOfCards === skillLevels.hard}
+            onClick={() => handleSkillClick(skillLevels.hard)}
+          />
         </div>
       </div>
-      <Link to="/play" state={{ gameInfo }}>
-        <h2 className={styles.play}>PLAY</h2>
+      <Link
+        to="/play"
+        state={{ gameParams }}
+        className={`${styles.play} ${isPlayEnabled ? '' : styles.disabled}`}
+      >
+        PLAY
       </Link>
     </div>
   );
 };
-
-const shows = [
-  {
-    name: 'The Wire',
-    showId: 179,
-  },
-  {
-    name: 'The Sopranos',
-    showId: 527,
-  },
-  {
-    name: 'Twin Peaks',
-    showId: 156,
-  },
-];
 
 export default Home;

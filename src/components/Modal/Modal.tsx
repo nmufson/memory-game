@@ -1,26 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Modal.module.css';
+import { GameParams } from '../../types';
+import { Link } from 'react-router-dom';
 
-const Modal = ({ winStatus, score, onClose }) => {
-  const [title, setTitle] = useState(null);
+interface ModalProps {
+  win: boolean;
+  prevScore: number;
+  handlePlayAgain: () => void;
+}
 
-  if (winStatus === 'win') {
-    setTitle('You Win!');
-  } else {
-    setTitle('You Lose');
-  }
+const Modal = ({ win, prevScore, highScore, handlePlayAgain }: ModalProps) => {
+  const [title, setTitle] = useState<string>('');
+
+  useEffect(() => {
+    setTitle(win ? 'You Win!' : 'You Lose');
+  }, [win]);
+
   return (
     <>
-      <div className={styles.backdrop} onClick={onClose} />
-      <div className={styles.modal} onClick={onClose}>
+      <div className={styles.backdrop} />
+      <div className={styles.modal}>
         <h2>{title}</h2>
-        <p>Score: {score}</p>
+        <p>Score: {prevScore}</p>
+        <p>High Score: {highScore}</p>
         <p>Would you like to play again?</p>
-        <div className={styles.buttonGroup}>
-          <button onClick={handleReturnHome}>Return Home</button>
-          <button onClick={handlePlayAgain}>Play Again</button>
+        <div className={styles.linkGroup}>
+          <Link to="/home">Return Home</Link>
+          <button onClick={handlePlayAgain}> Play Again</button>
         </div>
       </div>
     </>
   );
 };
+
+export default Modal;

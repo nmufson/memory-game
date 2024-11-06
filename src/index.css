@@ -36,6 +36,77 @@
     sans-serif;
 }
 
+.base {
+  --dark-blue: #1b262c;
+  --navy: #0f4c75;
+  --blue: #3282b8;
+  --light-blue: #bbe1fa;
+  --white: #ffffff;
+
+  --body-bg: var(--white);
+  --section-bg: var(--dark-blue);
+  --interactive-bg: var(--blue);
+  --primary-text: var(--navy);
+  --secondary-text: var(--gray);
+}
+
+.breaking-bad {
+  --forest-green: #547a52;
+  --sand: #e3c8a3;
+  --slate-blue: #1c4670;
+  --dusty-yellow: #bfa13a;
+  --charcoal-black: #2e2e2e;
+  --light-gray: #f1f1f1;
+
+  --body-bg: var(--light-gray);
+  --section-bg: var(--forest-green);
+  --interactive-bg: var(--sand);
+  --interactive-hover: var(--dusty-yellow);
+  --primary-text: var(--charcoal-black);
+  --secondary-text: var(--sand);
+}
+
+.the-wire {
+  --near-black: #0a0b0d;
+  --dark-slate: #1e2029;
+  --slate-blue: #2d3142;
+  --cool-gray: #4f5565;
+  --ghost-white: #f8f9fa;
+
+  --body-bg: var(--ghost-white);
+  --section-bg: var(--near-black);
+  --interactive-bg: var(--cool-gray);
+  --primary-text: var(--ghost-white);
+  --secondary-text: var(--dark-slate);
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--primary-text);
+}
+
+.breaking-bad h1,
+.breaking-bad h2 {
+  color: var(--primary-text);
+}
+
+.breaking-bad p {
+  color: var(--primary-text);
+}
+
+.the-wire h1,
+.the-wire h2 {
+  color: var(--secondary-text);
+}
+
+.the-wire main p {
+  color: var(--secondary-text);
+}
+
+.the-wire header p {
+  color: var(--primary-text);
+}
+
 html {
   font-size: 14px;
 }
@@ -48,8 +119,9 @@ html {
 
 #root {
   display: grid;
-  min-height: 100vh;
   grid-template-rows: auto 1fr auto;
+  gap: 0.5rem;
+  min-height: 100vh;
 }
 
 main {
@@ -57,6 +129,45 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.card {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+a,
+button {
+  background-color: var(--interactive-bg);
+  color: var(--white);
+  border: 3px solid var(--section-bg);
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.button-secondary {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  border: 1px solid var(--border-color);
+}
+
+header,
+footer {
+  min-height: 4rem;
+  background-color: var(--section-bg);
+  color: var(--white);
 }
 
 @media (min-width: 768px) {

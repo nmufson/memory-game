@@ -24,6 +24,7 @@
   width: 300px;
   object-fit: cover;
   object-position: center;
+  border: 0.3rem solid transparent;
 }
 
 .skillContainer {
@@ -43,7 +44,10 @@
   height: 2rem;
 }
 
-button.play {
+.play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 10rem;
   height: 4rem;
 }

@@ -1,6 +1,8 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
 }
 
 .header h1 {
@@ -8,14 +10,25 @@
 }
 
 .header p {
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   margin: 10px 0 15px 0;
+  color: var(--secondary-text);
+  font-weight: 700;
+  width: 12rem;
 }
 
 .header > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.header a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid var(--primary-text);
+  width: 5rem;
 }
 
 .header > div:first-child {
@@ -26,4 +39,16 @@
 .header > div:nth-child(2) {
   align-items: flex-end;
   margin: 0 10px 0 0;
+}
+
+@media (min-width: 768px) {
+  .header p {
+    width: auto;
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      font-size: 18px;
+    }
+  }
 }

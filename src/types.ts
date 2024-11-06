@@ -3,3 +3,8 @@ export interface Character {
   name: string;
   imageURL: string;
 }
+
+export interface GameParams {
+  showId: number | null;
+  numOfCards: number | null;
+}

@@ -1,13 +1,14 @@
 import './Header.module.css';
 import styles from './Header.module.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <>
       <header className={styles.header}>
-        <h1>Memory Game</h1>
+        <p>Memory Game</p>
 
-        <div>Home</div>
+        <Link to="/home">Home</Link>
       </header>
     </>
   );
