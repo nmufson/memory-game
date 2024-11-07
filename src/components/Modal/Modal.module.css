@@ -13,16 +13,19 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  border: 3px solid;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 101;
   width: clamp(250px, 90%, 400px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .modal h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
@@ -31,21 +34,22 @@
   gap: 1rem;
 }
 
-.modal p {
+.modal p,
+.modal button {
+  font-size: 1.2rem;
   margin-bottom: 1rem;
 }
 
-.linkGroup {
+.buttonGroup {
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
 
 .modalButton {
-  width: 8rem;
+  width: 10rem;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
 }

@@ -47,13 +47,21 @@
   width: 10rem;
   height: 4rem;
   border: 3px solid;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .play.disabled {
-  opacity: 0.5;
+  opacity: 0.7;
   pointer-events: none;
   cursor: not-allowed;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+  .home img {
+    height: 150px;
+    width: 400px;
+  }
 }

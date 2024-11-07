@@ -73,10 +73,14 @@ body.base {
   color: var(--white);
 }
 
-.base header a {
+.base header .homeButton {
   background-color: var(--blue);
-  color: var(--white);
   border-color: var(--dark-blue);
+}
+
+.homeButton,
+.base footer a {
+  color: var(--white);
 }
 
 .base .homeButtonContainer button {
@@ -116,10 +120,14 @@ body.the-wire {
   color: var(--ghost-white);
 }
 
-.the-wire header a {
+.the-wire header .homeButton {
   background-color: var(--cool-gray);
-  color: var(--white);
   border-color: var(--dark-blue);
+}
+
+.homeButton,
+.the-wire footer a {
+  color: var(--ghost-white);
 }
 
 .the-wire .homeButtonContainer button {
@@ -133,14 +141,87 @@ body.the-wire {
 }
 
 .the-wire .play {
-  background-color: var(--ghost-white);
-  border-color: var(--dark-slate);
-  color: var(--near-black);
+  background-color: var(--slate-blue);
+
+  border-color: var(--ghost-white);
+  color: var(--ghost-white);
 }
 
 .the-wire .card {
   background-color: var(--cool-gray);
   color: var(--ghost-white);
+}
+
+.the-wire .modal {
+  background-color: var(--cool-gray);
+  color: var(--ghost-white);
+  border-color: var(--near-black);
+}
+
+.the-wire .return-home,
+.the-wire .play-again {
+  color: var(--ghost-white);
+}
+.the-wire .return-home {
+  background-color: var(--slate-blue);
+}
+
+.the-wire .play-again {
+  background-color: var(--near-black);
+}
+
+/* breaking bad */
+
+body.breaking-bad {
+  background-color: var(--light-gray);
+  color: var(--charcoal-black);
+}
+
+.breaking-bad header,
+.breaking-bad footer {
+  background-color: var(--forest-green);
+}
+
+.breaking-bad .homeButtonContainer button {
+  background-color: var(--sand);
+  border-color: var(--forest-green);
+}
+
+.breaking-bad .homeButtonContainer button.selected {
+  border-color: var(--charcoal-black);
+}
+
+.breaking-bad header .homeButton {
+  background-color: var(--dusty-yellow);
+  border-color: var(--charcoal-black);
+}
+
+.homeButton,
+.breaking-bad footer a {
+  color: var(--charcoal-black);
+}
+
+.breaking-bad .play {
+  background-color: var(--dusty-yellow);
+  border-color: var(--charcoal-black);
+  color: var(--charcoal-black);
+}
+
+.breaking-bad .card {
+  background-color: var(--sand);
+}
+
+.breaking-bad .modal {
+  background-color: var(--sand);
+  border-color: var(--charcoal-black);
+}
+
+.breaking-bad .return-home {
+  background-color: var(--dusty-yellow);
+}
+
+.breaking-bad .play-again {
+  background-color: var(--forest-green);
 }
 
 html {
@@ -158,6 +239,7 @@ html {
   grid-template-rows: auto 1fr auto;
   gap: 1rem;
   min-height: 100vh;
+  justify-items: center;
 }
 
 main {
@@ -165,6 +247,11 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.header-container,
+main {
+  max-width: 1240px;
 }
 
 a {
@@ -182,6 +269,7 @@ button {
 
 header,
 footer {
+  width: 100%;
   min-height: 4rem;
 }
 

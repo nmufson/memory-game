@@ -42,8 +42,7 @@ const Game = () => {
       try {
         const data = await fetchCharacters(
           gameParams.showId,
-          // gameParams.numOfCards
-          3
+          gameParams.numOfCards
         );
         const shuffledData = shuffle(data);
         setCharacterData(shuffledData);
@@ -115,12 +114,18 @@ const Game = () => {
     <>
       <div className={styles.gameContainer}>
         <h1>
-          Earn points by clicking on an image. Points reset if you click on the
-          same image twice!
+          Earn a point for each character selected. Pick the same character
+          twice, and you lose!
         </h1>
         <div className={`scoreContainer ${styles.scoreContainer}`}>
-          <p>Score: {gameInfo.currentScore || 0}</p>
-          <p>Best Score: {gameInfo.highScore || 0}</p>
+          <div className={styles.currentScore}>
+            <p>Score:</p>
+            <p> {gameInfo.currentScore || 0}</p>
+          </div>
+          <div className={styles.highScore}>
+            <p>High Score:</p>
+            <p> {gameInfo.highScore || 0}</p>
+          </div>
         </div>
         <div className={styles.cards}>
           {characterData.map((character) => (

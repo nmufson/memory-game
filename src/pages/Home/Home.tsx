@@ -14,7 +14,7 @@ const Home = () => {
   });
 
   const skillLevels = {
-    easy: 3,
+    easy: 15,
     medium: 25,
     hard: 35,
   };

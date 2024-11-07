@@ -1,54 +1,47 @@
 .header {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.headerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  width: 100%;
 }
 
-.header h1 {
-  margin: 10px 0 0 0;
-}
-
-.header p {
-  font-size: 2.5rem;
-  margin: 10px 0 15px 0;
-  font-weight: 700;
-  width: 12rem;
-}
-
-.header > div {
+.headerContainer > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.header a {
+.homeButton {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 3px solid;
   width: 6rem;
   font-size: 1.3rem;
+  cursor: pointer;
 }
 
-.header > div:first-child {
-  margin: 0 0 0 10px;
-  align-items: flex-start;
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  width: 12rem;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
 }
 
-.header > div:nth-child(2) {
-  align-items: flex-end;
-  margin: 0 10px 0 0;
+.homeButton:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
 @media (min-width: 768px) {
-  .header p {
+  .logo {
     width: auto;
-  }
-
-  @media (min-width: 1024px) {
-    html {
-      font-size: 18px;
-    }
   }
 }
