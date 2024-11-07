@@ -55,7 +55,7 @@ const Home = () => {
       </div>
       <div className={styles.skillContainer}>
         <h1>Choose a Skill Level</h1>
-        <div className={styles.buttonContainer}>
+        <div className={`homeButtonContainer ${styles.buttonContainer}`}>
           <SkillButton
             label="Easy"
             isSelected={gameParams.numOfCards === skillLevels.easy}
@@ -76,7 +76,7 @@ const Home = () => {
       <Link
         to="/play"
         state={{ gameParams }}
-        className={`${styles.play} ${isPlayEnabled ? '' : styles.disabled}`}
+        className={`${styles.play} play ${isPlayEnabled ? '' : styles.disabled}`}
       >
         PLAY
       </Link>

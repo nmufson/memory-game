@@ -42,7 +42,8 @@ const Game = () => {
       try {
         const data = await fetchCharacters(
           gameParams.showId,
-          gameParams.numOfCards
+          // gameParams.numOfCards
+          3
         );
         const shuffledData = shuffle(data);
         setCharacterData(shuffledData);

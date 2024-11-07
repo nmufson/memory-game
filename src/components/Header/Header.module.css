@@ -12,7 +12,6 @@
 .header p {
   font-size: 2.5rem;
   margin: 10px 0 15px 0;
-  color: var(--secondary-text);
   font-weight: 700;
   width: 12rem;
 }
@@ -27,8 +26,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid var(--primary-text);
-  width: 5rem;
+  border: 3px solid;
+  width: 6rem;
+  font-size: 1.3rem;
 }
 
 .header > div:first-child {

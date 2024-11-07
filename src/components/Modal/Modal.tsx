@@ -19,14 +19,21 @@ const Modal = ({ win, prevScore, highScore, handlePlayAgain }: ModalProps) => {
   return (
     <>
       <div className={styles.backdrop} />
-      <div className={styles.modal}>
+      <div className={`modal ${styles.modal}`}>
         <h2>{title}</h2>
-        <p>Score: {prevScore}</p>
-        <p>High Score: {highScore}</p>
+        <div className={styles.scoreContainer}>
+          <p>Score: {prevScore}</p> |<p>High Score: {highScore}</p>
+        </div>
+
         <p>Would you like to play again?</p>
         <div className={styles.linkGroup}>
-          <Link to="/home">Return Home</Link>
-          <button onClick={handlePlayAgain}> Play Again</button>
+          <Link to="/home" className={styles.modalButton}>
+            Return Home
+          </Link>
+          <button onClick={handlePlayAgain} className={styles.modalButton}>
+            {' '}
+            Play Again
+          </button>
         </div>
       </div>
     </>

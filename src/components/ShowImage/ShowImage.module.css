@@ -1,3 +1,7 @@
+.showImage {
+  cursor: pointer;
+}
+
 .showImage.selected {
   border-color: white;
   opacity: 0.8;

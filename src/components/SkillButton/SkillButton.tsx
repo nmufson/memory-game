@@ -10,7 +10,7 @@ const SkillButton = ({ label, isSelected, onClick }: SkillButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className={`${styles.skillButton} ${isSelected ? styles.selected : ''}`}
+      className={`${styles.skillButton} ${isSelected ? `${styles.selected} selected` : ''}`}
     >
       {label}
     </button>

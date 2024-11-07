@@ -15,7 +15,7 @@
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 101;
   width: clamp(250px, 90%, 400px);
@@ -26,6 +26,26 @@
   margin-bottom: 1rem;
 }
 
+.scoreContainer {
+  display: flex;
+  gap: 1rem;
+}
+
 .modal p {
   margin-bottom: 1rem;
+}
+
+.linkGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modalButton {
+  width: 8rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
 }
