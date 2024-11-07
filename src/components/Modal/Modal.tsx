@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from './Modal.module.css';
-import { GameParams } from '../../types';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import setTheme from '../../utils/setTheme';
 
 interface ModalProps {

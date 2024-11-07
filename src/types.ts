@@ -7,4 +7,5 @@ export interface Character {
 export interface GameParams {
   showId: number | null;
   numOfCards: number | null;
+  theme: string | null;
 }

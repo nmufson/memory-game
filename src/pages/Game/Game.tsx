@@ -6,6 +6,7 @@ import styles from './Game.module.css';
 import { Character } from '../../types';
 import { useLocation } from 'react-router-dom';
 import Modal from '../../components/Modal/Modal';
+import setTheme from '../../utils/setTheme';
 
 interface modalInfo {
   isModalOpen: boolean;
@@ -36,6 +37,7 @@ const Game = () => {
   const location = useLocation();
 
   const gameParams = location.state?.gameParams;
+  setTheme(gameParams.theme);
 
   useEffect(() => {
     const fetchData = async () => {

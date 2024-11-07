@@ -11,6 +11,7 @@ const Home = () => {
   const [gameParams, setGameParams] = useState<GameParams>({
     showId: null,
     numOfCards: null,
+    theme: null,
   });
 
   const skillLevels = {
@@ -23,6 +24,7 @@ const Home = () => {
     setGameParams((prevParams) => ({
       ...prevParams,
       showId: show.id,
+      theme: show.theme,
     }));
 
     setTheme(show.theme);
@@ -49,7 +51,7 @@ const Home = () => {
               alt={show.name}
               isSelected={gameParams.showId === show.id}
               onClick={() => handleShowClick(show)}
-            ></ShowImage>
+            />
           ))}
         </div>
       </div>
