@@ -13,6 +13,9 @@ export const fetchCharacters = async (
 
     const data = await response.json();
 
+    // const string = JSON.stringify(data[0]);
+    // console.log(string);
+
     const charInfo = data.map((item) => ({
       id: item.character.id,
       name: item.character.name,

@@ -11,6 +11,7 @@ import setTheme from '../../utils/setTheme';
 interface modalInfo {
   isModalOpen: boolean;
   win: boolean;
+  prevScore: number;
 }
 
 interface gameInfo {
@@ -25,14 +26,14 @@ const Game = () => {
     currentScore: 0,
     highScore: 0,
   });
-  const [characterData, setCharacterData] = useState<Character[]>([]);
-
-  const [loading, setLoading] = useState<boolean>(true);
   const [modalInfo, setModalInfo] = useState<modalInfo>({
     isModalOpen: false,
     win: false,
     prevScore: 0,
   });
+
+  const [characterData, setCharacterData] = useState<Character[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const location = useLocation();
 
@@ -59,7 +60,6 @@ const Game = () => {
 
   const clickCard = (characterId: number) => {
     if (gameInfo.selectedCardIds.includes(characterId)) {
-      console.log(gameInfo.currentScore);
       setModalInfo({
         isModalOpen: true,
         win: false,
@@ -97,17 +97,18 @@ const Game = () => {
       currentScore: 0,
       selectedCardIds: [],
     }));
+
+    const shuffledData = shuffle(characterData);
+    setCharacterData(shuffledData);
   };
 
   const handlePlayAgain = () => {
-    restartGame();
-
     setModalInfo((prevInfo) => ({
       ...prevInfo,
       isModalOpen: false,
     }));
-    const shuffledData = shuffle(characterData);
-    setCharacterData(shuffledData);
+
+    restartGame();
   };
 
   if (loading) return <p>loading...</p>;
