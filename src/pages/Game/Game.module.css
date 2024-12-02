@@ -3,7 +3,16 @@
   flex-direction: column;
   gap: 1rem;
   max-width: 1000px;
+  z-index: 100;
 }
+
+/* .background {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  position: fixed;
+  top: 0;
+} */
 
 .gameContainer h1 {
   text-align: center;

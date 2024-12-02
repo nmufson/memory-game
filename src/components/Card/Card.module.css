@@ -17,7 +17,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
-.card img {
+.card .characterImage {
   border: 3px black solid;
   object-fit: cover;
   object-position: center;
@@ -25,6 +25,7 @@
   width: 100px;
   height: 125px;
   background-color: maroon;
+  animation: blurIn 0.5s ease-in-out forwards;
 }
 
 .nameContainer {
@@ -33,6 +34,7 @@
   align-items: center;
   justify-content: flex-start;
   min-height: 50px;
+  animation: blurIn 0.5s ease-in-out forwards;
 }
 
 .card p {
@@ -43,7 +45,7 @@
 }
 
 @media (min-width: 768px) {
-  .card img {
+  .card .characterImage {
     width: 150px;
     height: 200px;
   }
@@ -52,5 +54,32 @@
 @media (min-width: 1024px) {
   html {
     font-size: 18px;
+  }
+}
+
+.card.blur .characterImage,
+.card.blur .nameContainer {
+  animation: blurOut 0.5s ease-in forwards;
+}
+
+@keyframes blurOut {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+
+@keyframes blurIn {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
   }
 }

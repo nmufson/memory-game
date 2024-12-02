@@ -21,6 +21,7 @@ interface gameInfo {
 }
 
 const Game = () => {
+  const [isBlurred, setIsBlurred] = useState<boolean>(false);
   const [gameInfo, setGameInfo] = useState<gameInfo>({
     selectedCardIds: [],
     currentScore: 0,
@@ -86,8 +87,13 @@ const Game = () => {
         });
       }
 
-      const shuffledData = shuffle(characterData);
-      setCharacterData(shuffledData);
+      setIsBlurred(true);
+
+      setTimeout(() => {
+        const shuffledData = shuffle(characterData);
+        setCharacterData(shuffledData);
+        setIsBlurred(false);
+      }, 300);
     }
   };
 
@@ -115,6 +121,11 @@ const Game = () => {
 
   return (
     <>
+      {/* <img
+        className={styles.background}
+        src="./images/breaking-bad.webp"
+        alt=""
+      /> */}
       <div className={styles.gameContainer}>
         <h1>
           Earn a point for each character selected. Pick the same character
@@ -135,6 +146,7 @@ const Game = () => {
             <Card
               key={character.id}
               character={character}
+              isBlurred={isBlurred}
               onClick={() => clickCard(character.id)}
             />
           ))}
